@@ -59,9 +59,9 @@ che.auth.reserved_user_names=api,dashboard,factory,ide-resources,main,site,swagg
 auth.sso.client_allow_anonymous=false
 
 # braintree configurations, must be empty for on premise installations.
-braintree.merchant_id=<% if has_variable?('codenvy::braintree_merchant_id') %><%= scope.lookupvar('codenvy::braintree_merchant_id') %><% else %><% end %>
-braintree.public_key=<% if has_variable?('codenvy::braintree_public_key') %><%= scope.lookupvar('codenvy::braintree_public_key') %><% else %><% end %>
-braintree.private_key=<% if has_variable?('codenvy::braintree_private_key') %><%= scope.lookupvar('codenvy::braintree_private_key') %><% else %><% end %>
+braintree.merchant_id=yg7rk6xz7vfqct3c
+braintree.public_key=xvc2627rnctn26yx
+braintree.private_key=a18a8695a0e611f7e7814fbdcfece37d
 braintree.environment=<% if has_variable?('codenvy::braintree_environment') %><%= scope.lookupvar('codenvy::braintree_environment') %><% else %><% end %>
 
 # DB initialization and migration configuration
@@ -70,5 +70,10 @@ db.schema.flyway.baseline.version=5.0.0.8.1.2
 db.schema.flyway.scripts.prefix=
 db.schema.flyway.scripts.suffix=.sql
 db.schema.flyway.scripts.version_separator=__
-db.schema.flyway.scripts.locations=classpath:che-schema,classpath:codenvy-schema
+db.schema.flyway.scripts.locations=classpath:che-schema,classpath:codenvy-schema,classpath:saas-schema
 db.jndi.datasource.name=java:/comp/env/jdbc/codenvy
+
+#billing
+billing.expiration.limit=86400000
+billing.cycle.type=hourly
+billing.package.types=RAM,SEATS
